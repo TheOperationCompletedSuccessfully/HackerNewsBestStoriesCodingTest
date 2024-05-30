@@ -1,0 +1,7 @@
+
+@schema=http
+@hostname=localhost
+@port=5093
+
+GET {{schema}}://{{hostname}}:{{port}}/HackerNewsBestStory/api/v0/takefirst/45
+###
