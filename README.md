@@ -11,10 +11,7 @@ Assuming that data from hacker-news.firebaseio.com will change, but not so quick
 I used [ResponseCache(Duration = 3600)] to keep responding the same data for the same value of n param for an hour.
 Also the requests for more than 1000 items will get 400 response
 
-However If I had more time 
-there could be created L2 Cache (MemoryCache) 
-tha would enhance the granularity for next requests,
-e.g. that would keep cache data and asked firebase for differences only (if any),
-for instance 
-after request for 30 items => all of them cached
-next request for 100 items will produce only 70 calls (delta).
+Also I added HackerNewsBestStoryCacheService
+that will keep data for at least "HackerNewsCacheResetPeriodInSeconds" seconds (see appsettings.json).
+And subsequent requests will take data from that cache 
+and only request a "delta" records from FireBase.
